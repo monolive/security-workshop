@@ -6,3 +6,6 @@ workshop01.cloudapp.net
 
 [db_server]
 workshop01.cloudapp.net
+
+[kdc_server]
+workshop01.cloudapp.net

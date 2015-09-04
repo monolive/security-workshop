@@ -6,6 +6,13 @@
     - prep
     - ambari-agent
     - users
+    - krb-client
+
+- hosts: kdc_server
+  user: orenault
+  sudo: yes
+  roles:
+    - kdc
 
 - hosts: db_server
   user: orenault
@@ -18,3 +25,5 @@
   sudo: yes
   roles:
     - ambari-server
+    - ambari-kerberos-setup
+

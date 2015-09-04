@@ -436,6 +436,7 @@
           "hive.exec.post.hooks" : "org.apache.hadoop.hive.ql.hooks.ATSHook",
           "hive.exec.dynamic.partition" : "true",
           "hive.enforce.sortmergebucketmapjoin" : "true",
+          "javax.jdo.option.ConnectionURL" : "jdbc:mysql://%HOSTGROUP::host_group_1%/hive?createDatabaseIfNotExist=true",
           "javax.jdo.option.ConnectionDriverName" : "com.mysql.jdbc.Driver",
           "hive.metastore.kerberos.principal" : "hive/_HOST@EXAMPLE.COM",
           "hive.server2.thrift.http.port" : "10001",

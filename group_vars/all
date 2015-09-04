@@ -14,6 +14,25 @@ java_home : /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/
 #log_folder: /var/log/hadoop
 #pid_folder: /var/run/hadoop
 
+ambari_version: 2 # CSV file is different in between Ambari 1 and ambari 2.x
+REALM: KRB.HDP
+domain: internal.cloudapp.net
+
+# Automatically append /admin after the user
+# To get admin on kdc <kdc_admin>/admin
+kdc_admin: root
+kdc_password: hadoop
+keytab_file: /Users/orenault/Developments/host-principal-keytab-list.csv
+cluster_name: workshop02
+
+# Create a list of host to be used during the KRB installation
+# it's a two step process
+# use hosts_list in the roles with_flattened
+host_list: "{% for host in groups['all'] -%}
+{{ hostvars[host].ansible_fqdn}}
+{% endfor %}"
+hosts_list: host_list.split()
+
 
 # A common group shared by services.
 HADOOP_GROUP : hadoop

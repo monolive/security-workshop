@@ -1,0 +1,40 @@
+---
+  - name: install kdc
+    yum: name={{ item }} state=present
+    with_items:
+      - krb5-server
+      - krb5-libs
+
+  - name: copy kdc.conf
+    template: src=kdc.conf.j2 dest=/var/kerberos/krb5kdc/kdc.conf mode=0600 owner=root group=root
+
+  - name: copy kadm5.acl
+    template: src=kadm5.acl.j2 dest=/var/kerberos/krb5kdc/kadm5.acl mode=0600 owner=root group=root
+
+  - name: Check if kdc already configured
+    stat: path=/var/kerberos/krb5kdc/principal
+    register: kdc_config
+
+  - debug: var=kdc_config
+
+  - name: initialise kdc
+    shell: /usr/sbin/kdb5_util create -s -P {{ kdc_password }}
+    when: kdc_config.stat.exists == false
+
+  - name: create admin user
+    shell: /usr/sbin/kadmin.local -q "addprinc -pw {{ kdc_password }} {{ kdc_admin }}/admin"
+
+  - name: start services
+    service: name={{ item }} state=started enabled=yes
+    with_items: 
+      - krb5kdc
+      - kadmin
+
+# - name: copy keytab file
+#   copy: src={{ keytab_file }} dest=/var/kerberos/krb5kdc/host-principal.csv
+
+# - include: create_principal_ambari1.yml
+#   when: ambari_version == 1 
+
+# - include: create_principal_ambari2.yml
+#   when: ambari_version == 2
