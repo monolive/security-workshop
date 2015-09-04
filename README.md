@@ -1,14 +1,12 @@
-# ansible-hdp
-Ansible recipe to install HDP ( Hortonworks Data Platform) 
+# security-workshop
+Ansible recipe to install HDP ( Hortonworks Data Platform) on a single node VM.
 
-It has been tested on Azure / OpenStack.
+It has been tested on Azure 
 
-Currently, it's working with single DB - MySQL. The blueprint are not exporting password. The installation will initially fail but it will be overwritten following the installation. 
+Currently, it's working with single DB - MySQL. 
 
 # How To 
 Configure repositories and other variables in group_vars/all 
-
-Add your blueprint in blueprints folder. You will also need to modify the host-mapping section to reflect your env.
 
 In case of failure, you may want to delete ambari-server package / delete /tmp/blueprint.json and /tmp/host-map.json as if they are present steps are skipped
 
@@ -16,4 +14,3 @@ In case of failure, you may want to delete ambari-server package / delete /tmp/b
 - Implement postgresql
 - Implement kerberos
 - Implement Ranger
-- Generate a host map based upon hosts config
