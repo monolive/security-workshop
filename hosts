@@ -1,0 +1,8 @@
+[all]
+workshop01.cloudapp.net
+
+[ambari_server]
+workshop01.cloudapp.net
+
+[db_server]
+workshop01.cloudapp.net

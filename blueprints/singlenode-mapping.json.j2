@@ -1,0 +1,14 @@
+{
+  "blueprint" : "{{ cluster_name }}",
+  "default_password" : "default",
+  "host_groups" :[
+    {
+      "name" : "host_group_1",
+      "hosts" : [
+        {
+          "fqdn" : "{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}"
+        }
+      ]
+    }
+  ]
+}

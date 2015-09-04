@@ -1,0 +1,73 @@
+# repos
+ambari_repo : http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.1.1
+hdp_repo : http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.3.0.0
+hdp_util_repo : http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6
+
+# Keep same format as official repo
+hdp_stack: 2.3
+hdp_utils: 1.1.0.20
+
+cluster_name: workshop01
+
+java_home : /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/
+
+#log_folder: /var/log/hadoop
+#pid_folder: /var/run/hadoop
+
+
+# A common group shared by services.
+HADOOP_GROUP : hadoop
+HADOOP_GID : 1000
+
+#  HDFS service user.
+HDFS_USER : hdfs
+HDFS_UID : 1000
+
+#  YARN service user.
+YARN_USER : yarn
+YARN_UID : 1001
+
+#  MapReduce service user.
+MAPRED_USER : mapred
+MAPRED_UID : 1002
+
+#  Oozie service user.
+OOZIE_USER : oozie
+OOZIE_UID : 1003
+
+#  Hive service user.
+HIVE_USER : hive
+HIVE_UID : 1004
+
+#  HBase service user.
+HBASE_USER : hbase
+HBASE_UID : 1005
+
+#  ZooKeeper service user.
+ZOOKEEPER_USER : zookeeper
+ZOOKEEPER_UID : 1006
+
+# sqoop user
+SQOOP_USER : sqoop
+SQOOP_UID : 1008
+
+# ambari-qa user
+AMBARIQA_USER : ambari-qa
+AMBARIQA_UID : 1009
+
+# falcon user
+FALCON_USER : falcon
+FALCON_UID : 1010
+
+# hcat user
+HCAT_USER : hcat
+HCAT_UID : 1011
+
+# ams user
+AMS_USER : ams
+AMS_UID : 1012
+
+# tez user
+TEZ_USER : tez
+TEZ_UID : 1013
+
